@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background: #fff;
+  color: #494949;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --content-width: 1200px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.main {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: #f5f5f5;
+  padding: 0 12px;
+  box-shadow: 6px 0px 6px 2px rgb(193 193 193 / 30%);
+}
+
+.sidebar__profile {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.sidebar__profile--name {
+  font-weight: 700;
+  margin: .6em 0;
+  font-size: 1.4em;
+}
+
+.sidebar__profile--detail {
+  font-size: .9em;
+  margin: 2em 0;
+}
+
+.sidebar__profile--sns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 1em 0;
+}
+
+.sidebar__profile--icon {
+  width: 130px;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sidebar__profile--sns a {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 6px;
+  text-decoration: none;
+  color: #fff;
+  background: #333;
+}
+
+.sidebar__profile--sns span {
+  height: 18px;
+  line-height: 18px;
+  width: 18px;
+}
+
+.sidebar__menu {
+  display: none;
+}
+
+.contents {
+  max-width: var(--content-width);
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.works {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* アニメーション用CSS */
+
+.js-fadein {
+  opacity: 0;
+}
+
+.is-show {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    flex: 0 0 auto;
+    width: 250px;
+    height: 100vh;
+  }
+
+  .sidebar__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 1em 0;
+  }
+
+  .sidebar__menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: .06em;
+    line-height: 2;
+  }
+
+  .sidebar__menu--item button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .main {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .works {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
